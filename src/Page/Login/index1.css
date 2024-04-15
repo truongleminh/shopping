@@ -1,0 +1,22 @@
+.bgLogin{
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../../../public/logo/login-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.logIn{
+    
+    position: absolute;
+    right: 16vw;
+    top: 24vh;
+    padding: 40px;
+    border: 3px solid gray;
+    border-radius: 20px;   
+    font-size: 24px;
+}
+.error{
+    font-size: 12px;
+    color: red;
+}
