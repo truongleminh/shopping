@@ -2,7 +2,7 @@ const CardComponent = ({...props})=>{
     return(
         <div className={props.classCard}>
             <div className="card h-100" >
-                <img src={props.img} class="card-img-bottom object-fit-contain h-75" />
+                <img src={props.img} className="card-img-bottom object-fit-contain h-75" />
                 <div class="card-body ">
                 <h5 className="card-title">{props.valueName}</h5>
                 <>{

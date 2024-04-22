@@ -34,16 +34,16 @@ const app=express();
 const bodyParser=require('body-parser')
 const port=3030;
 const connection=mysql.createConnection({
-    // host:"localhost",
-    // port: 3307,
-    // user:'root',
-    // password:"",
-    // database:"data"
-    host: "sql6.freesqldatabase.com",
-    port: 3306,
-    user: "sql6698675",
-    password: "yNeSv5DBCY",
-    database: "sql6698675"
+    host:"localhost",
+    port: 3307,
+    user:'root',
+    password:"",
+    database:"data"
+    // host: "sql6.freesqldatabase.com",
+    // port: 3306,
+    // user: "sql6698675",
+    // password: "yNeSv5DBCY",
+    // database: "sql6698675"
 })
 connection.connect((err)=>{
    (err)?console.log("error"):console.log("connect");;
@@ -57,7 +57,7 @@ app.use(bodyParser.urlencoded({
 app.use(cors());
 app.use('/menu', (req,res,next)=>{
     //data.menu
-    connection.query('SELECT * FROM data;', (error,rows,result)=>{
+    connection.query('SELECT * FROM data.menu;', (error,rows,result)=>{
         if(!error){
             res.status(200).json({data: rows});
         }
@@ -65,7 +65,7 @@ app.use('/menu', (req,res,next)=>{
 })
 app.use('/product', (req,res,next)=>{
     //data.sanpham
-    connection.query('SELECT * FROM data;', (error,rows,result)=>{
+    connection.query('SELECT * FROM data.sanpham;', (error,rows,result)=>{
         if(!error){
             res.status(200).json({data: rows});
         }
@@ -73,7 +73,7 @@ app.use('/product', (req,res,next)=>{
 })
 app.use('/imgtt', (req,res,next)=>{
     //data.img_thanh_toan
-    connection.query('SELECT * FROM data;', (error,rows,result)=>{
+    connection.query('SELECT * FROM data.img_thanh_toan;', (error,rows,result)=>{
         if(!error){
             res.status(200).json({data: rows});
         }
@@ -81,7 +81,7 @@ app.use('/imgtt', (req,res,next)=>{
 })
 app.use('/infor', (req,res,next)=>{
     //data.infor;
-    connection.query('SELECT * FROM data;', (error,rows,result)=>{
+    connection.query('SELECT * FROM data.infor;', (error,rows,result)=>{
         if(!error){
             res.status(200).json({data: rows});
         }
@@ -89,7 +89,7 @@ app.use('/infor', (req,res,next)=>{
 })
 app.use('/icon', (req,res,next)=>{
     //data.icon
-    connection.query('SELECT * FROM data;', (error,rows,result)=>{
+    connection.query('SELECT * FROM data.icon;', (error,rows,result)=>{
         if(!error){
             res.status(200).json({data: rows});
         }
@@ -97,7 +97,7 @@ app.use('/icon', (req,res,next)=>{
 })
 app.post('/user',(req,res,next)=>{
     //data.user
-    var sql='SELECT * FROM data WHERE user="'+req.body.user+'" AND password="'+req.body.password+'"'
+    var sql='SELECT * FROM data.user WHERE user="'+req.body.user+'" AND password="'+req.body.password+'"'
     // console.log(sql);
     connection.query(sql,(error,rows,result)=>{
         if(rows.length!==0){
@@ -109,7 +109,7 @@ app.post('/user',(req,res,next)=>{
 })
 app.get('/products',(req, res, next)=>{
     //data.sanpham
-    connection.query('SELECT * FROM data;',(error,rows,result)=>{
+    connection.query('SELECT * FROM data.sanpham;',(error,rows,result)=>{
         if(!error){
             res.status(200).json({data:rows});
         }
@@ -117,7 +117,7 @@ app.get('/products',(req, res, next)=>{
 })
 app.delete('/products', (req,res,next)=>{
     //data.sanpham
-    var sql='DELETE FROM data WHERE idsanpham='+req.body.idsanpham
+    var sql='DELETE FROM data.sanpham WHERE idsanpham='+req.body.idsanpham
     console.log(sql);
     connection.query(sql,(error,rows,result)=>{
         res.status(200).json({data:rows})
@@ -126,7 +126,7 @@ app.delete('/products', (req,res,next)=>{
 })
 app.post('/products',(req,res,next)=>{
     //data.sanpham
-    var sql='INSERT INTO data (msp, name, thuonghieu, gia, img) VALUES ("'+req.body.msp+'","'+req.body.name+'","'+req.body.thuonghieu+'","'+req.body.price+'","'+req.body.img+'")'
+    var sql='INSERT INTO data.sanpham (msp, name, thuonghieu, gia, img) VALUES ("'+req.body.msp+'","'+req.body.name+'","'+req.body.thuonghieu+'","'+req.body.price+'","'+req.body.img+'")'
     console.log(sql);
     connection.query(sql,(error,rows,result)=>{
         if(!error){
@@ -139,7 +139,7 @@ app.post('/products',(req,res,next)=>{
 })
 app.get('/products/:id', (req,res,next)=>{
     //data.sanpham
-    var sql='SELECT * FROM data WHERE idsanpham="'+req.params.id+'"'
+    var sql='SELECT * FROM data.sanpham WHERE idsanpham="'+req.params.id+'"'
     console.log(req.params);
     connection.query(sql,(err, rows,result)=>{
         if(!err){
@@ -151,7 +151,7 @@ app.get('/products/:id', (req,res,next)=>{
 })
 app.post('/products/:id', (req,res,next)=>{
     //data.sanpham
-    var sql='UPDATE data SET name="'+req.body.name+'", thuonghieu="'+req.body.thuonghieu+'", gia="'+req.body.gia+'", msp="'+req.body.msp+'", img="'+req.body.img+'" WHERE idsanpham='+req.body.idsanpham;
+    var sql='UPDATE data.sanpham SET name="'+req.body.name+'", thuonghieu="'+req.body.thuonghieu+'", gia="'+req.body.gia+'", msp="'+req.body.msp+'", img="'+req.body.img+'" WHERE idsanpham='+req.body.idsanpham;
     console.log(sql);
     connection.query(sql,(err,rows,result)=>{
         if(!err){
