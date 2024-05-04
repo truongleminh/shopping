@@ -36,7 +36,7 @@ const HomePage=()=>{
           <span className="visually-hidden">Next</span>
           </button>
         </div>
-            <div className="text-primary link-danger text-uppercase text-center m-5 fs-1">Sản phẩm Adidas</div>
+            <div className="text-primary link-danger text-uppercase text-center m-5 fs-2">Sản phẩm Adidas</div>
             <div className="container my-3 d-flex justify-content-center">
             <img src="./logo/banner-adidas.jpg" style={{maxHeight:"50%", maxWidth:"100%"}} />
       </div>
@@ -60,9 +60,9 @@ const HomePage=()=>{
            <ButtonComponent classBtn="btn text-uppercase text-light btn-primary text-center" btnClick={productsPage}>xem tất cả</ButtonComponent>
         </div>
 
-        <div className="text-primary link-danger text-uppercase m-5 text-center fs-1">Sản phẩm Nike</div>
+        <div className="text-primary link-danger text-uppercase m-5 text-center fs-2">Sản phẩm Nike</div>
           <div className="container my-3 d-flex justify-content-center">
-          <img src="./logo/img-best-sellers.webp" alt="" />
+          <img src="./logo/img-best-sellers.webp" alt=""  style={{maxHeight:"50%", maxWidth:"100%"}}/>
       </div>
       <div className="container">
           <div className="row d-flex justify-content-center">
@@ -83,7 +83,7 @@ const HomePage=()=>{
         <ButtonComponent classBtn="btn text-uppercase text-light btn-primary text-center" btnClick={productsPage}>xem tất cả</ButtonComponent>
         </div>
 
-        <div className="text-primary link-danger text-uppercase mt-5 fs-1 text-center">phụ kiện</div>
+        <div className="text-primary link-danger text-uppercase mt-5 fs-2 text-center">phụ kiện</div>
         <div className="container my-5">
           <div className="row">
             <ImgComponent classImg="col-lg-6 col-sm-6" srcImg="./logo/accessories_1.webp"></ImgComponent>

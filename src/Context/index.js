@@ -41,6 +41,7 @@ export const AppProvider=({children})=>{
         setCart([...cart, value])
       }
     }
+    alert("Da them vao gio hang")
     }
     // if(!(cart.includes(value))){
     //   value.quatity=1;
